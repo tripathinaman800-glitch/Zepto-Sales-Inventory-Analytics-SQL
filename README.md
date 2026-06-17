@@ -79,6 +79,22 @@ The dataset contains product-level information including:
 
 ---
 
+## Sample Analysis Outputs
+
+### Top Revenue Categories
+
+![Top Revenue Categories](Screenshots/top_revenue_categories.png)
+
+### Revenue Contribution Analysis
+
+![Revenue Contribution](Screenshots/revenue_contribution.png)
+
+### Inventory Analysis
+
+![Inventory Analysis](Screenshots/inventory_analysis.png)
+
+---
+
 ## Tools Used
 
 * MySQL
