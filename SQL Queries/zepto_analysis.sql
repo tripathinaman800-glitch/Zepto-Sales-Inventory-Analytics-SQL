@@ -187,3 +187,12 @@ SELECT name, category, discount_percent,
 FROM zepto
 WHERE discount_percent > 40
 ORDER BY revenue ASC;
+
+-- 11. Inventory Analysis
+SELECT category,
+    COUNT(*) AS total_products,
+    SUM(CASE WHEN out_of_stock = 0 THEN 1 ELSE 0 END) AS in_stock_products,
+    SUM(CASE WHEN out_of_stock = 1 THEN 1 ELSE 0 END) AS out_of_stock_products
+FROM zepto
+GROUP BY category
+ORDER BY total_products DESC;
