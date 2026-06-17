@@ -106,9 +106,11 @@ The dataset contains product-level information including:
 
 📁 Dataset
 
+📁 Insights
+
 📁 SQL Queries
 
-📁 Insights
+📁 Screenshots
 
 📄 README.md
 
