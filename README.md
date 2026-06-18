@@ -119,5 +119,7 @@ The dataset contains product-level information including:
 ## Author
 
 **Naman Tripathi**
+
 B.Tech, Materials & Metallurgical Engineering
+
 MANIT Bhopal
