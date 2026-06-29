@@ -163,19 +163,19 @@ ORDER BY revenue DESC;
 
 -- Best Product in Each Category
 WITH product_revenue AS(
-    SELECT category, name,
-    discounted_selling_price * quantity AS revenue
-    FROM zepto
+SELECT category, name,
+discounted_selling_price*quantity AS revenue
+FROM zepto
+),
+product_ranking AS(
+SELECT*,
+ROW_NUMBER() OVER(
+PARTITION BY category
+ORDER BY revenue DESC) AS rn
+FROM product_revenue
 )
-SELECT *
-FROM
-( SELECT *,
-           ROW_NUMBER() OVER(
-           PARTITION BY category
-           ORDER BY revenue DESC
-           ) AS rn
-    FROM product_revenue
-) t
+SELECT*
+FROM product_ranking
 WHERE rn = 1;
 
 
@@ -191,8 +191,8 @@ ORDER BY revenue ASC;
 -- 11. Inventory Analysis
 SELECT category,
     COUNT(*) AS total_products,
-    SUM(CASE WHEN out_of_stock = 0 THEN 1 ELSE 0 END) AS in_stock_products,
-    SUM(CASE WHEN out_of_stock = 1 THEN 1 ELSE 0 END) AS out_of_stock_products
+     SUM(out_of_stock = 'FALSE') AS in_stock_products,
+     SUM(out_of_stock = 'TRUE') AS out_of_stock_products
 FROM zepto
 GROUP BY category
 ORDER BY total_products DESC;
